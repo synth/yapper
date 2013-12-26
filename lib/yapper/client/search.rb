@@ -1,4 +1,4 @@
-module Yammer
+module Yapper
   class Client
     # Defines methods related to search
     module Search

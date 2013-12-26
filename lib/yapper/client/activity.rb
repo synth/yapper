@@ -1,4 +1,4 @@
-module Yammer
+module Yapper
   class Client
     module Activity
       def new_activity(options={})

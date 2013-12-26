@@ -1,4 +1,4 @@
-module Yammer
+module Yapper
   class Client
     # Defines methods to get/declines suggestions.
     module Suggestions

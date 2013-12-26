@@ -1,4 +1,4 @@
-module Yammer
+module Yapper
   # @private
   module Authentication
     # Check whether user is authenticated

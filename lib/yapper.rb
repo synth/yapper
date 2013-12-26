@@ -1,17 +1,17 @@
 require 'yam'
-require 'rammer/api'
-require 'rammer/client'
-require 'rammer/configuration'
-require 'rammer/error'
+require 'yapper/api'
+require 'yapper/client'
+require 'yapper/configuration'
+require 'yapper/error'
 
-module Rammer
+module Yapper
   extend Configuration
   class << self
-    # Alias for Rammer::Client.new
+    # Alias for Yapper::Client.new
     #
-    # @return [Yammer::Client]
+    # @return [Yapper::Client]
     def new(options={})
-      Rammer::Client.new(options)
+      Yapper::Client.new(options)
     end
 
     # Delegate to Yammer::Client

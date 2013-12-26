@@ -1,9 +1,9 @@
-require 'yammer/authentication'
-require 'yammer/configuration'
-require 'yammer/connection'
-require 'yammer/request'
+require 'yapper/authentication'
+require 'yapper/configuration'
+require 'yapper/connection'
+require 'yapper/request'
 
-module Yammer
+module yapper
   # @private
   class API
     include Connection
@@ -15,7 +15,7 @@ module Yammer
 
     # Creates a new API
     def initialize(options={})
-      options = Yammer.options.merge(options)
+      options = yapper.options.merge(options)
       Configuration::VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", options[key])
       end

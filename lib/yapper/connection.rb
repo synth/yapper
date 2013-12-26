@@ -1,4 +1,4 @@
-module Yammer
+module Yapper
   # @private
   module Connection
     private

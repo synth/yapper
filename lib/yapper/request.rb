@@ -43,7 +43,7 @@ module Yammer
       rescue MultiJson::DecodeError
         Hashie::Mash.new
       rescue Faraday::Error::ClientError => e
-        raise Yammer::ErrorProxy.new(e)
+        raise Yapper::ErrorProxy.new(e)
 
       end
     end
@@ -55,7 +55,7 @@ module Yammer
       when 'json', 'xml'
         [path, format].compact.join('.')
       when 'raw'
-        [path, Yammer.format].compact.join('.')
+        [path, Yapper.format].compact.join('.')
       end
     end
   end

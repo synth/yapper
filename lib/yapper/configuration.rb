@@ -1,6 +1,6 @@
 require 'yammer/version'
 
-module Yammer
+module Yapper
   # Defines constants and methods related to configuration
   module Configuration
     # An array of valid keys in the options hash when configuring a {Yammer::API}
@@ -33,7 +33,7 @@ module Yammer
     DEFAULT_PROXY = nil
 
     # The value sent in the 'User-Agent' header if none is set
-    DEFAULT_USER_AGENT = "Yammer Ruby Gem #{Yammer::VERSION}".freeze
+    DEFAULT_USER_AGENT = "Yammer Ruby Gem #{Yapper::VERSION}".freeze
 
     DEFAULT_GATEWAY = nil
 

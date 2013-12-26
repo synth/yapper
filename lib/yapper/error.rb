@@ -1,4 +1,4 @@
-module Yammer
+module Yapper
 
   # This gem seems to monkey patch faraday to catch certain exceptions
   # and even that attempt does not seem to be loaded anywhere, so instead
@@ -18,23 +18,23 @@ module Yammer
 
       case status.to_i
       when 400
-        Yammer::BadRequest.new(error_message(message), headers)
+        Yapper::BadRequest.new(error_message(message), headers)
       when 401
-        Yammer::Unauthorized.new(error_message(message), headers)
+        Yapper::Unauthorized.new(error_message(message), headers)
       when 403
-        Yammer::Forbidden.new(error_message(message), headers)
+        Yapper::Forbidden.new(error_message(message), headers)
       when 404
-        Yammer::NotFound.new(error_message(message), headers)
+        Yapper::NotFound.new(error_message(message), headers)
       when 429
-        Yammer::TooManyRequests.new(error_message(message), headers)
+        Yapper::TooManyRequests.new(error_message(message), headers)
       when 406
-        Yammer::NotAcceptable.new(error_message(message), headers)
+        Yapper::NotAcceptable.new(error_message(message), headers)
       when 500
-        Yammer::InternalServerError.new(error_message("Something is technically wrong."), headers)
+        Yapper::InternalServerError.new(error_message("Something is technically wrong."), headers)
       when 502
-        Yammer::BadGateway.new(error_message("Yammer is down or being upgraded."), headers)
+        Yapper::BadGateway.new(error_message("Yammer is down or being upgraded."), headers)
       when 503
-        Yammer::ServiceUnavailable.new(error_message("(__-){ Yammer is over capacity."), headers)
+        Yapper::ServiceUnavailable.new(error_message("(__-){ Yammer is over capacity."), headers)
       else
         Exception.new("Unhandled Exception Status: #{status} - #{message}")
       end      
