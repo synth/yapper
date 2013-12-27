@@ -86,5 +86,5 @@ Submitting a Pull Request
 
 Copyright
 ---------
-Copyright (c) 2011, Bruno Mattarollo <bruno@road.ly>
+Copyright (c) 2011, Peter Philips <pete <-at-> p373.net>
 See [LICENSE](https://github.com/roadly/yammer/blob/master/LICENSE.md) for details.
