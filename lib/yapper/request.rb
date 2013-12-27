@@ -3,25 +3,37 @@ module Yapper
   module Request
     # Perform an HTTP GET request
     def get(path, options={}, format=format)
-      request(:get, path, options, format)
+      respond request(:get, path, options, format)
     end
 
     # Perform an HTTP POST request
     def post(path, options={}, format=format)
-      request(:post, path, options, format)
+      respond request(:post, path, options, format)
     end
 
     # Perform an HTTP PUT request
     def put(path, options={}, format=format)
-      request(:put, path, options, format)
+      respond request(:put, path, options, format)
     end
 
     # Perform an HTTP DELETE request
     def delete(path, options={}, format=format)
-      request(:delete, path, options, format)
+      respond request(:delete, path, options, format)
     end
 
     private
+
+    def respond(raw_response)
+      body = raw_response.body
+      case body
+      when Array
+        body.map{|item| Hashie::Mash.new(item)}
+      when Hash
+        Hashie::Mash.new(body)
+      else
+        raise "Unhandled response type"
+      end
+    end
 
     # Perform an HTTP request
     def request(method, path, options, format)
