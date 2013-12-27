@@ -51,6 +51,8 @@ module Yapper
     def formatted_path(path, format)
       #paths must have a leading /
       path = "/#{path}" if path[0] != "/"
+      path = "/#{api_path_prefix}#{path}"
+      
       case format.to_s.downcase
       when 'json', 'xml'
         [path, format].compact.join('.')

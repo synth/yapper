@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "yapper/version"
 
 Gem::Specification.new do |gem|
-  gem.add_runtime_dependency 'yam', '~> 2.1.1'
+  gem.add_runtime_dependency 'yam', '2.0.1'
   gem.authors = ["Bruno Mattarollo, Peter Philips"]
   gem.description = %q{A Ruby wrapper for the Yammer REST API}
   gem.email = ['bruno.mattarollo@gmail.com', 'pete@p373.net']

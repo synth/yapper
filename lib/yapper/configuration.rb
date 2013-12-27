@@ -7,6 +7,7 @@ module Yapper
     VALID_OPTIONS_KEYS = [
       :adapter,
       :endpoint,
+      :api_path_prefix,
       :format,
       :gateway,
       :oauth_token,
@@ -19,7 +20,11 @@ module Yapper
     # The endpoint that will be used to connect if none is set
     #
     # @note This is configurable in case you want to use HTTP instead of HTTPS, specify a different API version.
-    DEFAULT_ENDPOINT = 'https://www.yammer.com/api/v1/'.freeze
+    DEFAULT_ENDPOINT = 'https://www.yammer.com/'.freeze
+
+    DEFAULT_API_VERSION = 'v1'.freeze
+
+    DEFAULT_API_PATH_PREFIX = 'api/'+DEFAULT_API_VERSION
 
     # The response format appended to the path and sent in the 'Accept' header if none is set
     #
@@ -61,6 +66,7 @@ module Yapper
     def reset
       self.adapter            = DEFAULT_ADAPTER
       self.endpoint           = DEFAULT_ENDPOINT
+      self.api_path_prefix    = DEFAULT_API_PATH_PREFIX
       self.format             = DEFAULT_FORMAT
       self.oauth_token        = DEFAULT_OAUTH_TOKEN
       self.proxy              = DEFAULT_PROXY

@@ -4,7 +4,7 @@ module Yapper
     private
 
     def connection(format=format)
-      Yam.new(oauth_token, endpoint)
+      Yammer::Client.new(access_token: oauth_token, endpoint: endpoint)
     end
   end
 end
