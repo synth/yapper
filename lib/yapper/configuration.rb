@@ -1,4 +1,4 @@
-require 'yammer/version'
+require 'yapper/version'
 
 module Yapper
   # Defines constants and methods related to configuration
