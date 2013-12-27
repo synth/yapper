@@ -3,7 +3,7 @@ require 'yapper/configuration'
 require 'yapper/connection'
 require 'yapper/request'
 
-module yapper
+module Yapper
   # @private
   class API
     include Connection
@@ -15,7 +15,7 @@ module yapper
 
     # Creates a new API
     def initialize(options={})
-      options = yapper.options.merge(options)
+      options = Yapper.options.merge(options)
       Configuration::VALID_OPTIONS_KEYS.each do |key|
         send("#{key}=", options[key])
       end

@@ -1,4 +1,4 @@
-module Yammer
+module Yapper
   # Defines HTTP request methods
   module Request
     # Perform an HTTP GET request

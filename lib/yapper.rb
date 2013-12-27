@@ -1,4 +1,4 @@
-require 'yam'
+require 'yammer'
 require 'yapper/api'
 require 'yapper/client'
 require 'yapper/configuration'
