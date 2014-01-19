@@ -31,7 +31,8 @@ module Yapper
       when Hash
         Hashie::Mash.new(body)
       else
-        raise "Unhandled response type"
+        title = raw_response.body.match("<title>(.*)</title>")[1]
+        raise "Unhandled response type: #{title}"
       end
     end
 
@@ -64,6 +65,7 @@ module Yapper
       #paths must have a leading /
       path = "/#{path}" if path[0] != "/"
       path = "/#{api_path_prefix}#{path}"
+      path.gsub!(/\/$/, '') #and trailing slash if present
       
       case format.to_s.downcase
       when 'json', 'xml'
