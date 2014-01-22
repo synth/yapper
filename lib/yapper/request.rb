@@ -31,7 +31,13 @@ module Yapper
       when Hash
         Hashie::Mash.new(body)
       else
-        title = raw_response.body.match("<title>(.*)</title>")[1]
+        title = raw_response.body.match("<title>(.*)</title>")[1] rescue raw_response
+
+        # perhaps we're looking up a user who doesn't exist or isn't in our network,
+        # in that case, response will be blank, and allow client to handle it
+        return nil if title.blank? #return 
+
+        # otherwise, we don't know what's returned, so raise exception
         raise "Unhandled response type: #{title}"
       end
     end
